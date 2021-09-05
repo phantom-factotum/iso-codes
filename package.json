@@ -1,0 +1,17 @@
+{
+  "name": "iso-codes",
+  "version": "1.0.0",
+  "description": "Get a country/province/state/region iso code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update":"node update.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "xlsx": "^0.17.1"
+  }
+}
