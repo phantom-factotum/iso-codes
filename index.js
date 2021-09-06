@@ -32,3 +32,8 @@ const useSalesTaxRates=({isoCountryCode,region})=>{
 	return regionTaxRate + countryTaxRate
 }
 exports = {getIsoCode,useSalesTaxRates}
+let region = 'São Paulo'
+let isoCode = getIsoCode({region})
+console.log(isoCode)
+let taxRate = useSalesTaxRates({region})
+console.log(taxRate)

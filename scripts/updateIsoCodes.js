@@ -11,11 +11,10 @@ let jsonFileName = path.join(__dirname,'../jsons/codes.json')
 async function getFile(){
 	// customs and border patrol provides a xlsx file with all international state/province codes
 	let xlsxUrl = 'https://www.cbp.gov/sites/default/files/documents/codes_7.xls'
-	console.log('Downloading file from',xlsxUrl)
 	let stream = fs.createWriteStream(xlsxFileName)
 	return await new Promise(async resolve=>{
 		stream.on('finish',()=>{
-			console.log('Finished')
+			console.log('Downloaded', jsonFileName)
 			resolve(xlsxFileName)
 		})
 		const response = await axios.get(xlsxUrl,{
@@ -26,7 +25,6 @@ async function getFile(){
 			console.log('Error downloading xls file!')
 		})
 		await response.data.pipe(stream)
-		console.log('File downloaded')
 	})
 	
 }
@@ -34,13 +32,8 @@ module.exports = async function parseXlsx(){
 	let sheet
 	try{
 		let filename = update ? await getFile() : xlsxFileName
-		console.log('Attempting to read the xls file...')
 		const table = XLSX.readFile(filename)
 		sheet = table.Sheets[table.SheetNames[0]]
-		// console.log(sheet)
-		if(sheet != { '!ref': 'A1' }){
-			console.log('Xls file read properly. Attempting to parse... ')
-		}
 	}catch(err){
 		if(err.errno === -4058){
 			console.error('Excel sheet not found')
@@ -61,7 +54,7 @@ module.exports = async function parseXlsx(){
 		provinceName = provinceName?.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().toLowerCase()
 		provinceCodes[provinceName] = { countryCode,provinceCode}
 	}
-	console.log("Parsed xls file. Writing to file...")
 	fs.writeFileSync(jsonFileName,JSON.stringify(provinceCodes,null,2))
+	console.log('iso codes updated!\n')
 }
 // parseXlsx()

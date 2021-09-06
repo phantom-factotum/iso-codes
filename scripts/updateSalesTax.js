@@ -11,15 +11,14 @@ module.exports= async function updateSalesTaxJson(){
 	await new Promise(async resolve=>{
 		let stream = fs.createWriteStream(jsonFileName)
 		stream.on('finish',()=>{
-			console.log('finished')
+			console.log('Downloaded',jsonFileName)
+			console.log('Sales tax rates updated!\n')
 			resolve()
 		})
 
-		console.log('Downloading file from',salesTaxUrl)
 		const response = await axios.get(salesTaxUrl,{
 			responseType:'stream',
 		})
 		await response.data.pipe(stream)
-		console.log('File downloaded')
 	})
 }
