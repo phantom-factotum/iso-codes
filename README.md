@@ -1,5 +1,5 @@
 # iso-code-tax-rates
-Get iso-codes for a province/state and the sales tax rate of that region. Built using the json file from [node-sales-tax](https://github.com/valeriansaliou/node-sales-tax), and the xls file from the [Customs and Border Protection](https://www.cbp.gov/document/guidance/international-stateprovince-codes).
+Get iso-codes for a province/state and the sales tax rate of that region. Built using the json file from [node-sales-tax](https://github.com/valeriansaliou/node-sales-tax), and by converting xls file from the [Customs and Border Protection](https://www.cbp.gov/document/guidance/international-stateprovince-codes) into a json.
 
 ## Sample Usage
 ### getIsoCode({region,isoCountryCode})
@@ -22,3 +22,5 @@ Get iso-codes for a province/state and the sales tax rate of that region. Built 
  ```
  returns a Float
  
+## Updating iso codes and tax rates
+This project depends on the information from [node-sales-tax](https://github.com/valeriansaliou/node-sales-tax) and  [Customs and Border Protection](https://www.cbp.gov/document/guidance/international-stateprovince-codes). Should you notice out of date tax rates or iso codes, try running `npm run update` to update the information
