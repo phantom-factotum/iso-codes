@@ -1,6 +1,6 @@
 {
   "name": "iso-code2sales-tax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get a country/province/state/region iso code and sales tax rates",
   "main": "index.js",
   "scripts": {
