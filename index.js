@@ -17,7 +17,7 @@ const getIsoCode=({isoCountryCode,region})=>{
 		}
 	}
 }
-const useSalesTaxRates=({isoCountryCode,region})=>{
+const getSalesTaxRate=({isoCountryCode,region})=>{
 	let regionTaxRate = 0.0
 	if(!isoCountryCode && !region)
 		return regionTaxRate
@@ -53,5 +53,5 @@ const useSalesTaxRates=({isoCountryCode,region})=>{
     // Just return a value to define the module export.
     // This example returns an object, but the module
     // can return a function as the exported value.
-    return {getIsoCode, useSalesTaxRates};
+    return {getIsoCode, getSalesTaxRate};
 }));

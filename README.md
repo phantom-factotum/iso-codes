@@ -1,4 +1,4 @@
-# iso-code-tax-rates
+# iso-code2sales-tax
 
 Get iso-codes for a province/state and the sales tax rate of that region. Built using the json file from node-sales-tax, and by converting xls file from the Customs and Border Protection into a json.
 ## Sample Usage

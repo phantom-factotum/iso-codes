@@ -1,5 +1,5 @@
 {
-  "name": "iso-codes-tax-rates",
+  "name": "iso-code2sales-tax",
   "version": "1.0.0",
   "description": "Get a country/province/state/region iso code and sales tax rates",
   "main": "index.js",
@@ -7,7 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update":"node update.js"
   },
-  "keywords": [],
+  "keywords": [
+    "international sales tax", 
+    "state",
+    "province",
+    "region",
+    "country",
+    "iso code",
+    "node-sales-tax",
+    "axios",
+    "xlsx"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
